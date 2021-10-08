@@ -1,9 +1,9 @@
 require "json"
 
-require "./lib/flakey_finder/runs"
-require "./lib/flakey_finder/run"
+require "./lib/flaky_finder/runs"
+require "./lib/flaky_finder/run"
 
-module FlakeyFinder
+module FlakyFinder
 
   def self.find(path, sample_size = 10)
     Runs.new(

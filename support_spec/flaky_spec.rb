@@ -1,4 +1,4 @@
-describe "a flakey test" do
+describe "a flaky test" do
   it "fails sometimes" do
     pass = rand() < 0.5 # about 50% of the time
     expect(pass).to eq(true)

@@ -1,6 +1,6 @@
-require "./lib/flakey_finder/example"
+require "./lib/flaky_finder/example"
 
-module FlakeyFinder
+module FlakyFinder
   class Run
     def initialize(examples)
       @examples = examples.map { |e| Example.new(e) }
