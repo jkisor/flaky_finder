@@ -5,18 +5,64 @@ describe FlakyFinder::Runs do
 
   subject { FlakyFinder::Runs.new(runs) }
 
-  let(:runs) do
-    [
-      Run.new(
-        "file_path" => "./path/to/file",
-        "line_number" => 123,
-        "status" => "passed"
-      )
-    ]
+  context "all stable" do
+    let(:runs) do
+      [
+        FlakyFinder::Run.new(
+          [
+            {
+              "file_path" => "./path/to/file",
+              "line_number" => 123,
+              "status" => "passed"
+            }
+          ]
+        ),
+        FlakyFinder::Run.new(
+          [
+            {
+              "file_path" => "./path/to/file",
+              "line_number" => 123,
+              "status" => "passed"
+            }
+          ]
+        )
+      ]
 
+    end
+
+    it do
+      expect(subject.unstable_examples).to be_empty
+    end
   end
 
-  it do
+  context "unstable" do
+    let(:runs) do
+      [
+        FlakyFinder::Run.new(
+          [
+            {
+              "file_path" => "./path/to/file",
+              "line_number" => 123,
+              "status" => "passed"
+            }
+          ]
+        ),
+        FlakyFinder::Run.new(
+          [
+            {
+              "file_path" => "./path/to/file",
+              "line_number" => 123,
+              "status" => "failed"
+            }
+          ]
+        )
+      ]
+
+    end
+
+    it do
+      expect(subject.unstable_examples).to include("./path/to/file:123")
+    end
   end
 
 end
