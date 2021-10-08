@@ -1,4 +1,4 @@
-class FlakeyFinder
+module FlakeyFinder
   class Runs
     def initialize(runs)
       @runs = runs

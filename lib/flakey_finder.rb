@@ -3,9 +3,9 @@ require "json"
 require "./lib/flakey_finder/runs"
 require "./lib/flakey_finder/run"
 
-class FlakeyFinder
+module FlakeyFinder
 
-  def find(path, sample_size = 10)
+  def self.find(path, sample_size = 10)
     Runs.new(
       (1..sample_size)
         .map { |_| `bundle exec rspec #{path} --format j` }
@@ -13,6 +13,5 @@ class FlakeyFinder
         .map { |examples| Run.new(examples) }
     ).unstable_examples
   end
-
 
 end

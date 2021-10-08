@@ -2,7 +2,7 @@ require "./lib/flakey_finder"
 
 describe FlakeyFinder do
 
-  subject { described_class.new }
+  subject { described_class }
 
   context "when tests pass constantly" do
     it "finds no flakey tests" do

@@ -1,4 +1,4 @@
-class FlakeyFinder
+module FlakeyFinder
   class Example
     def initialize(example)
       @example = example
