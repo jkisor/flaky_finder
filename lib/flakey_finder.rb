@@ -2,34 +2,10 @@ require "json"
 
 require "./lib/flakey_finder/runs"
 require "./lib/flakey_finder/run"
+require "./lib/flakey_finder/example"
 
 
 class FlakeyFinder
-
-  class Example
-    def initialize(example)
-      @example = example
-    end
-
-    def key
-      [file_path, line_number].join(":")
-    end
-
-    def status
-      @example["status"]
-    end
-
-    private
-
-    def file_path
-      @example["file_path"]
-    end
-
-    def line_number
-      @example["line_number"]
-    end
-
-  end
 
   def find(path, sample_size = 10)
     runs = collect_runs(path, sample_size)
