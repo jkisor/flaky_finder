@@ -1,4 +1,4 @@
-require "./flakey_finder"
+require "./lib/flakey_finder"
 require "json"
 
 describe FlakeyFinder do
