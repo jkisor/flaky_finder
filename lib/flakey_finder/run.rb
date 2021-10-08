@@ -1,3 +1,5 @@
+require "./lib/flakey_finder/example"
+
 class FlakeyFinder
   class Run
     def initialize(examples)

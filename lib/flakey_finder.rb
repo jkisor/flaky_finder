@@ -2,8 +2,6 @@ require "json"
 
 require "./lib/flakey_finder/runs"
 require "./lib/flakey_finder/run"
-require "./lib/flakey_finder/example"
-
 
 class FlakeyFinder
 
